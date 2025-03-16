@@ -7,7 +7,7 @@
   <path d="M18 15H22V18H18V15Z" fill="white"/>
   
   <!-- Text -->
-  <text x="35" y="25" font-family="Arial" font-weight="bold" font-size="16" fill="#1F2937">
+  <text x="35" y="25" font-family="Arial" font-weight="bold" font-size="16" fill="#1F2937" role="text">
     REI CRM
   </text>
 </svg> 

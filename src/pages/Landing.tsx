@@ -92,7 +92,7 @@ const Landing: React.FC = () => {
       <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/logo.png" alt="REI CRM" className="h-8 w-auto" />
+            <img src="/logo.svg" alt="REI CRM" className="h-8 w-auto" />
             <div className="hidden md:flex space-x-8 ml-10">
               <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
               <a href="#testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</a>
@@ -100,8 +100,8 @@ const Landing: React.FC = () => {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <Link to="/login" className="text-gray-600 hover:text-gray-900">Login</Link>
-            <Link to="/signup" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+            <Link to="/app/login" className="text-gray-600 hover:text-gray-900">Login</Link>
+            <Link to="/app/signup" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
               Get Started
             </Link>
           </div>
@@ -120,7 +120,7 @@ const Landing: React.FC = () => {
               Manage properties, clients, and deals with unprecedented efficiency.
             </p>
             <div className="flex justify-center space-x-4">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors">
+              <button onClick={() => window.location.href = '/app/signup'} className="bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors">
                 Start Free Trial
               </button>
               <button className="bg-white text-blue-600 px-8 py-3 rounded-md text-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors">
@@ -245,7 +245,7 @@ const Landing: React.FC = () => {
           <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
             Join thousands of successful real estate professionals who have already streamlined their business with our CRM.
           </p>
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-50 transition-colors">
+          <button onClick={() => window.location.href = '/app/signup'} className="bg-white text-blue-600 px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-50 transition-colors">
             Start Your Free Trial
           </button>
         </div>
@@ -260,26 +260,26 @@ const Landing: React.FC = () => {
               <ul className="space-y-2">
                 <li><a href="#features" className="hover:text-white">Features</a></li>
                 <li><a href="#pricing" className="hover:text-white">Pricing</a></li>
-                <li><a href="#" className="hover:text-white">Security</a></li>
-                <li><a href="#" className="hover:text-white">Roadmap</a></li>
+                <li><Link to="/app/security" className="hover:text-white">Security</Link></li>
+                <li><Link to="/app/roadmap" className="hover:text-white">Roadmap</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-white font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white">About</a></li>
-                <li><a href="#" className="hover:text-white">Careers</a></li>
-                <li><a href="#" className="hover:text-white">Blog</a></li>
-                <li><a href="#" className="hover:text-white">Contact</a></li>
+                <li><Link to="/app/about" className="hover:text-white">About</Link></li>
+                <li><Link to="/app/careers" className="hover:text-white">Careers</Link></li>
+                <li><Link to="/app/blog" className="hover:text-white">Blog</Link></li>
+                <li><Link to="/app/contact" className="hover:text-white">Contact</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-white font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white">Documentation</a></li>
-                <li><a href="#" className="hover:text-white">Help Center</a></li>
-                <li><a href="#" className="hover:text-white">API</a></li>
-                <li><a href="#" className="hover:text-white">Status</a></li>
+                <li><Link to="/app/docs" className="hover:text-white">Documentation</Link></li>
+                <li><Link to="/app/help" className="hover:text-white">Help Center</Link></li>
+                <li><Link to="/app/api" className="hover:text-white">API</Link></li>
+                <li><Link to="/app/status" className="hover:text-white">Status</Link></li>
               </ul>
             </div>
             <div>
