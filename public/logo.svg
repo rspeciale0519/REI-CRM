@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Building icon -->
-  <path d="M15 5L25 12V35H5V12L15 5Z" fill="#3B82F6"/>
-  <path d="M12 20H18V35H12V20Z" fill="white"/>
-  <path d="M8 15H12V18H8V15Z" fill="white"/>
-  <path d="M18 15H22V18H18V15Z" fill="white"/>
-  
-  <!-- Text -->
-  <text x="35" y="25" font-family="Arial" font-weight="bold" font-size="16" fill="#1F2937" role="text">
-    REI CRM
-  </text>
+<svg width="100" height="40" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="30" font-family="Arial" font-size="24" font-weight="bold" fill="#3B82F6">REI CRM</text>
 </svg> 

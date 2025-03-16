@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { 
   Home, 
@@ -12,23 +12,36 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import UserMenu from '@/components/common/UserMenu';
+import { ProfileService } from '@/services/profile.service';
+import { Profile } from '@/types/database.types';
 
 interface SidebarProps {
   isOpen: boolean;
   toggleSidebar: () => void;
 }
 
+const navItems = [
+  { name: 'Dashboard', path: '/app', icon: <Home size={20} /> },
+  { name: 'Properties', path: '/app/properties', icon: <Building2 size={20} /> },
+  { name: 'Contacts', path: '/app/contacts', icon: <Users size={20} /> },
+  { name: 'Deals', path: '/app/deals', icon: <DollarSign size={20} /> },
+  { name: 'Tasks', path: '/app/tasks', icon: <CheckSquare size={20} /> },
+  { name: 'Calendar', path: '/app/calendar', icon: <Calendar size={20} /> },
+  { name: 'Reports', path: '/app/reports', icon: <BarChart2 size={20} /> },
+  { name: 'Settings', path: '/app/settings', icon: <Settings size={20} /> },
+];
+
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
-  const navItems = [
-    { name: 'Dashboard', path: '/', icon: <Home size={20} /> },
-    { name: 'Properties', path: '/properties', icon: <Building2 size={20} /> },
-    { name: 'Contacts', path: '/contacts', icon: <Users size={20} /> },
-    { name: 'Deals', path: '/deals', icon: <DollarSign size={20} /> },
-    { name: 'Tasks', path: '/tasks', icon: <CheckSquare size={20} /> },
-    { name: 'Calendar', path: '/calendar', icon: <Calendar size={20} /> },
-    { name: 'Reports', path: '/reports', icon: <BarChart2 size={20} /> },
-    { name: 'Settings', path: '/settings', icon: <Settings size={20} /> },
-  ];
+  const [profile, setProfile] = useState<Profile | null>(null);
+
+  useEffect(() => {
+    const loadProfile = async () => {
+      const { data } = await ProfileService.getProfile();
+      setProfile(data);
+    };
+    loadProfile();
+  }, []);
 
   return (
     <>
@@ -42,12 +55,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         </button>
       </div>
 
-      {/* Sidebar backdrop for mobile */}
+      {/* Mobile backdrop */}
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-50 z-10 lg:hidden"
           onClick={toggleSidebar}
-        ></div>
+        />
       )}
 
       {/* Sidebar */}
@@ -87,15 +100,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         </nav>
 
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
-          <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">
-              JD
-            </div>
-            <div className="ml-3">
-              <p className="text-sm font-medium text-gray-700">John Doe</p>
-              <p className="text-xs text-gray-500">john@example.com</p>
-            </div>
-          </div>
+          <UserMenu 
+            profile={profile} 
+            showFullInfo={true} 
+            align="left" 
+            className="w-full"
+          />
         </div>
       </aside>
     </>
